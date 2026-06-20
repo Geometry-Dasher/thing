@@ -1,0 +1,347 @@
+
+app.stepsPassed = 0
+
+app.correct = True
+
+app.state = 'menu'
+
+
+c= Image('cmu://1202356/47328950/Eo_circle_green_checkmark.svg-removebg-preview+(1).png',0,0)
+inc = Image('cmu://1202356/47328961/466-4667643_delete-png-red-x-in-circle-removebg-preview+(1).png',0,0)
+c.visible = False
+inc.visible = False
+
+
+hydro=Circle(200,100,30,fill='deepskyblue')
+litho=Circle(200,300,30,fill='brown')
+bio=Circle(100,200,30,fill='green')
+atmo=Circle(300,200,30,fill='lightcyan')
+cycles = Image('cmu://1202356/47324564/pngtree-cycle-arrow-glyph-black-icon-png-image_691472-removebg-preview+(1).png',50,50)
+ind = Image('cmu://1202356/47325529/supporting_indigenous_communities-removebg-preview+(1).png',172,172)
+thing=Label('Get 10 points to win!',200,370,size =30)
+menu = Group(hydro,litho,bio,atmo,cycles,ind,thing)
+
+
+n = Image('cmu://1202356/47329347/Eo_circle_green_letter-n.svg+(1).png',100,50)
+p = Image('cmu://1202356/47329348/Eo_circle_blue_white_letter-p.svg+(1).png',250,50)
+ca = Image('cmu://1202356/47329358/4791655-middle+(1).png',50,250)
+s = Image('cmu://1202356/47332577/download+(3)+(1).png',250,250)
+n.t = False
+p.t = False
+ca.t = False
+s.t = False
+
+back = Image('cmu://1202356/47332570/pngtree-back-vector-icon-png-image_470452.png',0,0)
+back.t =False
+cyclesMenu = Group(n,p,ca,back,s)#npc
+cyclesMenu.visible = False
+
+yellow = Rect(5,150,190,120,fill='yellow')
+blue = Rect(5,275,190,120,fill='blue')
+red = Rect(205,150,190,120,fill='red')
+green = Rect(205,275, 190,120,fill='green')
+qOptions = Group(red,blue,yellow,green)
+
+
+app.yellow = False
+app.green = False
+app.blue = False
+app.red = False
+
+
+app.questionGen = 0
+
+app.answer = 'none'
+app.hydroQ = False
+app.lithoQ = False
+app.bioQ = False
+app.atmoQ = False
+app.indQ = False
+app.cyclesQ = False
+app.nQ = False
+app.pQ = False
+app.caQ = False
+app.sQ = False
+bio.t = False
+litho.t = False
+atmo.t = False
+hydro.t = False
+cycles.t = False
+ind.t = False
+qOptions.visible = False
+
+points = Label(0,375,20,size = 25)
+
+###Questions
+
+Lq1Q = Label('What does the lithosphere consist of?',200,75,size =20)
+Lq1B = Label('All rock on the Earths crust and top mantle',100,335,size=9)
+Lq1Y = Label('All rock on earth',100,210)
+Lq1G = Label('only lithium',300,335)
+Lq1R = Label('The earths core',300,210)
+
+Lq1 = Group(Lq1Q,Lq1B,Lq1Y,Lq1G,Lq1R)
+Lq1.visible = False
+
+Lq2Q = Label('What causes tectonic plates to move?',200,75,size =20)
+Lq2B = Label('a conspiracy theory',100,335)
+Lq2Y = Label('wind',100,210)
+Lq2G = Label('Convection currents in the mantle',300,335)
+Lq2R = Label('Magnetic fields in the core',300,210)
+
+Lq2 = Group(Lq2Q,Lq2B,Lq2Y,Lq2G,Lq2R)
+Lq2.visible = False
+
+
+Hq1Q = Label('What is not a step in the water cycle?',200,75, size = 20)
+Hq1B = Label('evaporation',100,335)
+Hq1Y = Label('hydrosphere',100,210)
+Hq1G = Label('condensation',300,335)
+Hq1R = Label('runoff',300,210)
+
+
+Hq1 = Group(Hq1Q,Hq1R,Hq1B,Hq1Y,Hq1G)
+Hq1.visible = False
+
+
+Hq2Q = Label('A plant absorbs water. Which sphere is the hydrosphere interacting with?',200,75)
+Hq2R= Label('biosphere',300,210)
+Hq2G = Label('geosphere',300,335)
+Hq2B = Label('soccer ball',100,335)
+Hq2Y = Label('hydrosphere',100,210)
+
+
+Hq2 = Group(Hq2Q,Hq2B,Hq2R,Hq2Y,Hq2G)
+Hq2.visible = False
+
+Bq1Q = Label('What does the biosphere consist of?',200,75)
+Bq1R = Label('idiots',300,210)
+Bq1G = Label('all organisms and undecomposed organic matter',300,335)
+Bq1B = Label('the biology sector',100,335)
+Bq1Y = Label('TEK',100,210)
+
+
+Bq1 = Group(Bq1Q,Bq1B,Bq1R,Bq1G,Bq1Y)
+Bq1.visible = False
+
+Bq2Q = Label('Is an AI part of the biosphere?',200,75)
+Bq2R = Label('yes',300,210)
+Bq2B = Label('no',100,335)
+Bq2G = Label('idk',300,335)
+Bq2Y = Label('why ask me this',100,210)
+
+Bq2 = Group(Bq2Q,Bq2R,Bq2G,Bq2B,Bq2Y)
+Bq2.visible = False
+
+
+
+Aq1Q = Label('What gas is most abundant in the atmosphere?',200,75)
+Aq1R = Label('Nitrogen',300,210)
+Aq1G = Label('oxygen',300,335)
+Aq1Y = Label('Uranium-235',100,210)
+Aq1B = Label('Phosphorus',100,335)
+
+
+
+Aq1 = Group(Aq1Q,Aq1R,Aq1B,Aq1Y,Aq1G)
+Aq1.visible = False
+
+
+def onMouseRelease(mouseX,mouseY):
+    if app.state == 'menu':
+        if bio.hits(mouseX,mouseY):
+            bio.t = True
+        if atmo.hits(mouseX,mouseY):
+            atmo.t = True
+        if litho.hits(mouseX,mouseY):
+            litho.t = True
+        if hydro.hits(mouseX,mouseY):
+            hydro.t = True
+    elif app.state == 'question':
+        if yellow.hits(mouseX,mouseY):
+            app.yellow = True
+        if blue.hits(mouseX,mouseY):
+            app.blue = True
+        if red.hits(mouseX,mouseY):
+            app.red = True
+        if green.hits(mouseX,mouseY):
+            app.green = True
+        if back.hits(mouseX,mouseY):
+            back.t = True
+        if cycles.hits(mouseX,mouseY):
+            cycles.t = True
+    elif app.state == 'cyclesMenu':
+        if n.hits(mouseX,mouseY):
+            n.t = True
+        if p.hits(mouseX,mouseY):
+            p.t = True
+    
+
+
+
+
+
+
+def onStep():
+    if app.state == 'menu':
+        if bio.t == True:
+            app.questionGen = randrange(1,3)
+            app.bioQ = True
+            menu.visible = False
+            if app.questionGen ==1:
+                app.answer = 'green'
+                app.state = 'question'
+                qOptions.visible = True
+                Bq1.visible = True
+                bio.t = False
+            else:
+                app.state = 'question'
+                app.answer = 'blue'
+                Bq2.visible = True
+                bio.t = False
+                qOptions.visible = True
+        if litho.t == True:
+            app.questionGen = randrange(1,3)
+            app.lithoQ = True
+            menu.visible = False
+            if app.questionGen == 1:
+                Lq1.visible = True
+                qOptions.visible = True
+                app.answer = 'blue'
+                app.state = 'question'
+            else:
+                Lq2.visible = True
+                qOptions.visible = True
+                app.answer = 'green'
+                app.state = 'question'
+            litho.t = False
+        if hydro.t == True:
+            
+            app.questionGen = randrange(1,3)
+            app.hydroQ = True
+            menu.visible = False
+            qOptions.visible = True
+            hydro.t=False
+            if app.questionGen == 1:
+                Hq1.visible = True
+                app.state = 'question'
+                app.answer = 'yellow'
+            else:
+                Hq2.visible = True
+                app.answer = 'red'
+                qOptions.visible = True
+                app.state = 'question'
+        if atmo.t == True:
+            
+            app.questionGen = randrange(1,3)
+            app.atmoQ = True
+            menu.visible = False
+            atmo.t = False
+            if app.questionGen == 1:
+                Aq1.visible = True
+                app.answer= 'red'
+                app.state = 'question'
+                qOptions.visible = True
+        if ind.t == True:
+            
+            app.questionGen = randrange(1,3)
+            app.indQ = True
+            menu.visible = False
+            ind.t = False
+        if cycles.t == True:
+            app.state = 'cyclesMenu'
+            cyclesMenu.visible = True
+            menu.visible = False
+            cycles.t = False
+    if app.state == 'question':
+        app.correct = True
+        if app.green == True:
+            if app.answer == 'green':
+                points.value+=1
+                app.green = False
+                app.state = 'response'
+            else:
+                app.correct = False
+                app.green = False
+                app.state = 'response'
+        if app.blue == True:
+            if app.answer == 'blue':
+                points.value+=1
+                app.blue = False
+                app.state = 'response'
+            else:
+                app.correct = False
+                app.blue = False
+                app.state = 'response'
+        if app.red == True:
+            if app.answer == 'red':
+                points.value+=1
+            else:
+                app.correct = False
+            app.red = False
+            app.state = 'response'
+        if app.yellow == True:
+            if app.answer == 'yellow':
+                points.value+=1
+            else:
+                app.correct = False
+            app.yellow = False
+            app.state = 'response'
+    elif app.state == 'response':
+        qOptions.visible = False
+        Lq1.visible = False
+        Lq2.visible = False
+        Hq1.visible = False
+        Hq2.visible = False
+        Bq1.visible = False
+        Bq2.visible = False
+        # Cq1.visible = False
+        # Cq2.visible = False
+        # IndQ1.visible = False
+        # Indq2.visible = False
+        Aq1.visible = False
+        # Aq2.visible = False
+        # Pq1.visible = False
+        # Pq2.visible = False
+        # Sq1.visible = False
+        # Sq2.visible = False
+        # Nq1.visible = False
+        # Nq2.visible = False
+        if app.correct ==True:
+            c.visible = True
+            sleep(1)
+            c.visible = False
+            app.state = 'menu'
+            menu.visible = True
+        else:
+            inc.visible = True
+            sleep(1)
+            inc.visible = False
+            app.state = 'menu'
+            menu.visible = True
+    if app.state =='cyclesMenu':
+        if back.t == True:
+            app.state = 'menu'
+            menu.visible = True
+            cyclesMenu.visible = False
+            back.t = False
+        if ca.t == True:
+            app.state = 'question'
+            cyclesMenu.visible = False
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
