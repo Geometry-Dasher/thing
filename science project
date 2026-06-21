@@ -147,6 +147,126 @@ Aq1 = Group(Aq1Q,Aq1R,Aq1B,Aq1Y,Aq1G)
 Aq1.visible = False
 
 
+Aq2Q = Label('Which layer protects us from the Suns rays?',200,75)
+Aq2Y = Label('Ozone Layer',100,210)
+Aq2B = Label('Cake',100,335)
+Aq2R = Label('Exosphere',300,210)
+Aq2G = Label('Ionosphere',300,335)
+
+
+
+Aq2 = Group(Aq2Q,Aq2Y,Aq2G,Aq2B,Aq2R)
+Aq2.visible = False
+
+
+Nq1Q = Label('What is nitrogen fixation?',200,75)
+Nq1R = Label('A lightning strike',300,210)
+Nq1G = Label('The conversion of N2 to NH3',300,335)
+Nq1B = Label('Fixing nitrogen',100,335)
+Nq1Y = Label('Fixating nitrogen on something',100,210)
+
+
+Nq1 = Group(Nq1Q, Nq1R,Nq1G,Nq1B,Nq1Y)
+Nq1.visible = False
+
+
+Nq2Q = Label('Why cant plants use nitrogen in the air?',200,75)
+Nq2Y = Label('Nitrogen only exists in water',100,210)
+Nq2B = Label('N2 requires conversion to NH3',100,335)
+Nq2R = Label('Plants only absorb CO2',300,210)
+Nq2G = Label('Nitrogen cannot be used at all',300,335)
+
+
+
+Nq2 = Group(Nq2Q,Nq2Y,Nq2B,Nq2G,Nq2R)
+Nq2.visible = False
+
+
+IndQ1Q = Label('What does TEK stand for?',200,75)
+IndQ1G = Label('Traditional Ecological Knowledge',300,335)
+IndQ1R = Label('Take Every Keepsake',300,210)
+IndQ1B = Label('Teach Everyone Kindness',100,335)
+IndQ1Y = Label('Traditional Environment Knowledge',100,210)
+
+IndQ1 = Group(IndQ1Q,IndQ1R,IndQ1G,IndQ1B,IndQ1Y)
+IndQ1.visible = False
+
+
+IndQ2Q = Label('What is TEK based off of?',200,75)
+IndQ2R = Label('A holistic approach to the environment',300,210)
+IndQ2G = Label('Western science',300,335)
+IndQ2B = Label('AI slop',100,335)
+IndQ2Y = Label('Absolutely nothing',100,210)
+
+IndQ2 = Group(IndQ2Q,IndQ2R,IndQ2G,IndQ2B,IndQ2Y)
+IndQ2.visible = False
+
+
+
+Pq1Q = Label('What is the long term phosphorus cycle?',200,75)
+Pq1Y = Label('The cycle of phosphorus rock',100,210)
+Pq1B = Label('The cycle of hatred',100,335)
+Pq1R = Label('The life cycle',300,210)
+Pq1G = Label('Organisms and nutrient cycling',300,335)
+
+
+Pq1 = Group(Pq1Q, Pq1R,Pq1G,Pq1B,Pq1Y)
+Pq1.visible = False
+
+Pq2Q = Label('free question!', 200,75)
+Pq2R = Label('Not this one',300,210)
+Pq2G = Label('Not this one',300,335)
+Pq2B = Label('This one!',100,335)
+Pq2Y = Label('Not this one',100,210)
+
+
+
+Pq2 = Group(Pq2Q,Pq2R,Pq2G,Pq2B,Pq2Y)
+Pq2.visible = False
+
+
+Cq1Q = Label('What is the short term carbon cycle?',200,75)
+Cq1R = Label('photosynthesis, eating, and breathing',300,210)
+Cq1G = Label('Fossil fuels',300,335)
+Cq1Y = Label('juggling balls of pure carbon',100,210)
+Cq1B = Label('calcium carbonate cycling',100,335)
+
+
+Cq1 = Group(Cq1Q,Cq1R,Cq1G,Cq1B,Cq1Y)
+Cq1.visible = False
+
+Cq2Q = Label('What is the purpose of carbon in the atmosphere?',200,75)
+Cq2R = Label('Trapping heat and plant growth',300,210)
+Cq2G = Label('overheating the planet',300,335)
+Cq2B = Label('poisoning humans',100,335)
+Cq2Y = Label('Nothing',100,210)
+
+Cq2 = Group(Cq2Q,Cq2R,Cq2G,Cq2B,Cq2Y)
+Cq2.visible = False
+
+
+Sq1Q = Label('Which of the Earths four spheres interact with the sulfur cycle?',200,75)
+Sq1R = Label('none of them',300,210)
+Sq1G = Label('lithosphere, hydrosphere, atmosphere',300,335)
+Sq1B = Label('hydrosphere and geosphere',100,335)
+Sq1Y = Label('dyson sphere',100,210)
+
+
+Sq1 = Group(Sq1Q,Sq1R,Sq1G,Sq1B,Sq1Y)
+Sq1.visible = False
+
+
+Sq2Q = Label('What is a step in the sulfur cycle?',200,75)
+Sq2R = Label('Volcanic eruption',300,210)
+Sq2G = Label('a car crashing',300,335)
+Sq2B = Label('flying into space',100,335)
+Sq2Y = Label('Breathing',100,210)
+
+
+
+Sq2 = Group(Sq2Q,Sq2R,Sq2G,Sq2B,Sq2Y)
+Sq2.visible = False
+
 def onMouseRelease(mouseX,mouseY):
     if app.state == 'menu':
         if bio.hits(mouseX,mouseY):
@@ -157,6 +277,10 @@ def onMouseRelease(mouseX,mouseY):
             litho.t = True
         if hydro.hits(mouseX,mouseY):
             hydro.t = True
+        if cycles.hits(mouseX,mouseY):
+            cycles.t = True
+        if ind.hits(mouseX,mouseY):
+            ind.t = True
     elif app.state == 'question':
         if yellow.hits(mouseX,mouseY):
             app.yellow = True
@@ -166,17 +290,17 @@ def onMouseRelease(mouseX,mouseY):
             app.red = True
         if green.hits(mouseX,mouseY):
             app.green = True
-        if back.hits(mouseX,mouseY):
-            back.t = True
-        if cycles.hits(mouseX,mouseY):
-            cycles.t = True
     elif app.state == 'cyclesMenu':
         if n.hits(mouseX,mouseY):
             n.t = True
         if p.hits(mouseX,mouseY):
             p.t = True
-    
-
+        if ca.hits(mouseX,mouseY):
+            ca.t = True
+        if s.hits(mouseX,mouseY):
+            s.t = True
+        if back.hits(mouseX,mouseY):
+            back.t = True
 
 
 
@@ -216,7 +340,6 @@ def onStep():
                 app.state = 'question'
             litho.t = False
         if hydro.t == True:
-            
             app.questionGen = randrange(1,3)
             app.hydroQ = True
             menu.visible = False
@@ -232,7 +355,6 @@ def onStep():
                 qOptions.visible = True
                 app.state = 'question'
         if atmo.t == True:
-            
             app.questionGen = randrange(1,3)
             app.atmoQ = True
             menu.visible = False
@@ -242,12 +364,24 @@ def onStep():
                 app.answer= 'red'
                 app.state = 'question'
                 qOptions.visible = True
+            else: 
+                app.answer = 'yellow'
+                Aq2.visible =True
+                app.state = 'question'
+                qOptions.visible = True
         if ind.t == True:
-            
             app.questionGen = randrange(1,3)
             app.indQ = True
             menu.visible = False
             ind.t = False
+            qOptions.visible = True
+            app.state = 'question'
+            if app.questionGen == 1:
+                IndQ1.visible = True
+                app.answer = 'green'
+            else: 
+                IndQ2.visible = True
+                app.answer = 'red'
         if cycles.t == True:
             app.state = 'cyclesMenu'
             cyclesMenu.visible = True
@@ -295,18 +429,18 @@ def onStep():
         Hq2.visible = False
         Bq1.visible = False
         Bq2.visible = False
-        # Cq1.visible = False
-        # Cq2.visible = False
-        # IndQ1.visible = False
-        # Indq2.visible = False
+        Cq1.visible = False
+        Cq2.visible = False
+        IndQ1.visible = False
+        IndQ2.visible = False
         Aq1.visible = False
-        # Aq2.visible = False
-        # Pq1.visible = False
-        # Pq2.visible = False
-        # Sq1.visible = False
-        # Sq2.visible = False
-        # Nq1.visible = False
-        # Nq2.visible = False
+        Aq2.visible = False
+        Pq1.visible = False
+        Pq2.visible = False
+        Sq1.visible = False
+        Sq2.visible = False
+        Nq1.visible = False
+        Nq2.visible = False
         if app.correct ==True:
             c.visible = True
             sleep(1)
@@ -328,16 +462,50 @@ def onStep():
         if ca.t == True:
             app.state = 'question'
             cyclesMenu.visible = False
-            
-
-
-
-
-
-
-
-
-
+            qOptions.visible = True
+            app.questionGen = randrange(1,3)
+            ca.t=False
+            if app.questionGen ==1:
+                Cq1.visible= True
+                app.answer = 'red'
+            else:
+                app.answer = 'red'
+                Cq2.visible=  True
+        if n.t ==True:
+            app.state = 'question'
+            cyclesMenu.visible = False
+            qOptions.visible = True
+            app.questionGen = randrange(1,3)
+            n.t = False
+            if app.questionGen ==1:
+                app.answer = 'green'
+                Nq1.visible = True
+            else:
+                app.answer = 'blue'
+                Nq2.visible = True
+        if p.t == True:
+            app.state = 'question'
+            cyclesMenu.visible = False
+            qOptions.visible= True
+            app.questionGen = randrange(1,3)
+            p.t = False
+            if app.questionGen == 1:
+                app.answer = 'yellow'
+                Pq1.visible = True
+            else:
+                Pq2.visible = True
+                app.answer = 'blue'
+        if s.t == True:
+            app.state = 'question'
+            cyclesMenu.visible = False
+            qOptions.visible = True
+            app.questionGen = randrange(1,3)
+            if app.questionGen == 1:
+                Sq1.visible = True
+                app.answer = 'green'
+            else:
+                Sq2.visible=  True
+                app.answer = 'red'
 
 
 
